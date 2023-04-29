@@ -1,4 +1,4 @@
-package com.search_mysql.pojo;
+package com.gateway.pojo;
 
 import lombok.Data;
 
@@ -35,13 +35,5 @@ public class User {
      * 手机
      */
     private String phone;
-    public User() {
-    }
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
 
 }
