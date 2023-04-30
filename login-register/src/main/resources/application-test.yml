@@ -1,3 +1,5 @@
+server:
+  port: 8080
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -5,17 +7,14 @@ spring:
     username: root
     password: 1234
   application:
-    name: search-mysql
+    name: login-register
   cloud:
     nacos:
       discovery:
         register-enabled: false #不注册到nacos
-server:
-  port: 8081
 logging:
   level:
     com.search_mysql.mapper: debug
 mybatis:
   configuration:
     map-underscore-to-camel-case: true #mybatis 驼峰映射
-

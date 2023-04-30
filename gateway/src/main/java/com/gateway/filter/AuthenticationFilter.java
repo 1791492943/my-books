@@ -23,8 +23,8 @@ public class AuthenticationFilter implements GlobalFilter {
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
         //判断是否登录请求
-        if(request.getURI().getPath().contains("/login")){
-            //登录请求 放行
+        if(request.getURI().getPath().contains("/login") || request.getURI().getPath().contains("/register")){
+            //登录注册请求 放行
             return chain.filter(exchange);
         }
 

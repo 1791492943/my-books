@@ -1,11 +1,11 @@
-package com.search_mysql;
+package com.login_register;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SearchMysqlApplication {
+public class LoginRegisterApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SearchMysqlApplication.class,args);
+        SpringApplication.run(LoginRegisterApplication.class,args);
     }
 }

@@ -4,6 +4,8 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/my-books
     username: root
     password: 1234
+  application:
+    name: search-mysql
   cloud:
     nacos:
       server-addr: 192.168.10.99:8848
