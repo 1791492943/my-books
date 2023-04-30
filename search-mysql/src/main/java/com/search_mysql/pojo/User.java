@@ -28,10 +28,6 @@ public class User {
      */
     private String email;
     /**
-     * 书架
-     */
-    private String bookshelf;
-    /**
      * 手机
      */
     private String phone;

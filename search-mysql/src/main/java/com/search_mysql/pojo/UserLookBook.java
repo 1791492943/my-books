@@ -14,11 +14,11 @@ public class UserLookBook {
     /**
      * 用户id
      */
-    private Integer user_id;
+    private Integer userId;
     /**
      * 书id
      */
-    private Integer book_id;
+    private Integer bookId;
     /**
      * 看到的章节
      */

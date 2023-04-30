@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/my-books
+    username: root
+    password: 1234
+  application:
+    name: search-mysql
+  cloud:
+    nacos:
+      discovery:
+        register-enabled: false #不注册到nacos
+server:
+  port: 8081
+logging:
+  level:
+    com.search_mysql.mapper: debug
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+

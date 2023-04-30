@@ -1,6 +1,7 @@
 package com.search_mysql.controller;
 
 import com.search_mysql.pojo.User;
+import com.search_mysql.pojo.UserBookshelf;
 import com.search_mysql.service.SearchBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -34,6 +35,11 @@ public class SearchBookController {
     @GetMapping("/selectAll")
     public List<User> selectAll(){
         return searchBookService.selectAll();
+    }
+
+    @GetMapping("/test")
+    public List<UserBookshelf> selectAll1(){
+        return searchBookService.selectAll1();
     }
 
 }

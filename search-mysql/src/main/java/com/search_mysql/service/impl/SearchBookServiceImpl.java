@@ -2,6 +2,7 @@ package com.search_mysql.service.impl;
 
 import com.search_mysql.mapper.SearchBookMapper;
 import com.search_mysql.pojo.User;
+import com.search_mysql.pojo.UserBookshelf;
 import com.search_mysql.service.SearchBookService;
 import com.search_mysql.util.Jwt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class SearchBookServiceImpl implements SearchBookService {
     @Override
     public List<User> selectAll() {
         return searchBookMapper.selectAll();
+    }
+
+    @Override
+    public List<UserBookshelf> selectAll1() {
+        return searchBookMapper.selectAll1();
     }
 }
