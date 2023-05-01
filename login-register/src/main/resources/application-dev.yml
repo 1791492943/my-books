@@ -1,0 +1,19 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/my-books
+    username: root
+    password: 1234
+  application:
+    name: login-register
+  cloud:
+    nacos:
+      server-addr: 192.168.10.99:8848
+logging:
+  level:
+    com.search_mysql.mapper: debug
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #mybatis 驼峰映射

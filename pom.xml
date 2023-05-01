@@ -12,6 +12,8 @@
         <module>search-mysql</module>
         <module>gateway</module>
         <module>login-register</module>
+        <module>feign-api</module>
+        <module>TEST</module>
     </modules>
 
     <properties>
@@ -33,27 +35,35 @@
 
 
     <dependencies>
-        <!--jackson-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
+
+
 
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!--jackson-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!--feign 自己做的-->
+            <dependency>
+                <groupId>com.question-bank</groupId>
+                <artifactId>feign-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
             <!--jwt-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -81,6 +91,12 @@
                 <artifactId>activation</artifactId>
                 <version>1.1.1</version>
             </dependency>
+            <!--gateway 网关-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${cloud-gateway.version}</version>
+            </dependency>
             <!--spring-cloud-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -88,12 +104,6 @@
                 <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!--gateway 网关-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-gateway</artifactId>
-                <version>${cloud-gateway.version}</version>
             </dependency>
             <!--spring-cloud-alibaba-->
             <dependency>
@@ -103,7 +113,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!--spring-boot-web-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>

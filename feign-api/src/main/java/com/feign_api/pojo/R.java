@@ -1,4 +1,4 @@
-package com.login_register.pojo;
+package com.feign_api.pojo;
 
 import lombok.Data;
 

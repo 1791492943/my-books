@@ -18,9 +18,15 @@
     </properties>
 
     <dependencies>
+        <!--feign远程调用服务-->
+        <dependency>
+            <groupId>com.question-bank</groupId>
+            <artifactId>feign-api</artifactId>
+        </dependency>
+        <!--feign 高版本负载均衡依赖-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
         </dependency>
         <!--spring-cloud-->
         <dependency>
@@ -29,6 +35,11 @@
             <version>${spring-cloud.version}</version>
             <type>pom</type>
             <scope>import</scope>
+        </dependency>
+        <!--feign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <!--spring-cloud-alibaba-->
         <dependency>

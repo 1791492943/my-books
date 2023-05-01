@@ -1,7 +1,9 @@
 package com.login_register.controller;
 
-import com.login_register.pojo.R;
-import com.login_register.pojo.User;
+import com.feign_api.client.SearchMysqlClient;
+import com.feign_api.pojo.R;
+import com.feign_api.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class RegisterController {
 
+    @Autowired
+    private SearchMysqlClient searchMysqlClient;
 
-
-    @PostMapping("/login")
-    public R login(@RequestBody User user){
-        return null;
+    @PostMapping("/register")
+    public R register(@RequestBody User user){
+        return searchMysqlClient.register(user);
     }
 
 }
