@@ -2,6 +2,10 @@ package com.feign_api.pojo;
 
 import lombok.Data;
 
+/**
+ * 返回浏览器封装类 包含数据 状态码 异常信息
+ * @param <T>
+ */
 @Data
 public class R<T> {
 

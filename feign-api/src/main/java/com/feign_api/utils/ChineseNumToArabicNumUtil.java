@@ -1,5 +1,8 @@
-package com.search_mysql.util;
+package com.feign_api.utils;
 
+/**
+ * 中文数字转阿拉伯数字
+ */
 public class ChineseNumToArabicNumUtil {
     static char[] cnArr = new char[]{'一', '二', '三', '四', '五', '六', '七', '八', '九'};
     static char[] chArr = new char[]{'十', '百', '千', '万', '亿'};

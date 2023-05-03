@@ -9,10 +9,4 @@ import java.util.List;
 
 public interface SearchBookService {
 
-    int register(User user);
-
-    int registerAccount(User user);
-
-    UserDto login(User user);
-
 }

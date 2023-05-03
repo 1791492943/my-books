@@ -3,7 +3,7 @@ package com.feign_api.pojo;
 import lombok.Data;
 
 /**
- * 用户实体类
+ * 用户实体封装类 加了Token
  */
 @Data
 public class UserDto {

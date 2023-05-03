@@ -1,10 +1,13 @@
-package com.search_mysql.util;
+package com.feign_api.utils;
 
 import io.jsonwebtoken.*;
 
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * jwt权限认证
+ */
 public class Jwt {
     /**
      * 构建
