@@ -13,7 +13,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * 登录过滤器
+ * 权限认证过滤器
  */
 @Order(-1)
 @Component
@@ -22,9 +22,12 @@ public class AuthenticationFilter implements GlobalFilter {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
-        //判断是否登录请求
-        if(request.getURI().getPath().contains("/login") || request.getURI().getPath().contains("/register")){
-            //登录注册请求 放行
+        //登录 注册 看书 直接放行
+        if(request.getURI().getPath().contains("/login")
+                || request.getURI().getPath().contains("/register")
+                || request.getURI().getPath().contains("/selectBook")
+        ){
+            //放行
             return chain.filter(exchange);
         }
 

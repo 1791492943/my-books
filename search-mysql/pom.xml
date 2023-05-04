@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <!--feign 同步调用模块-->
+        <dependency>
+            <groupId>com.question-bank</groupId>
+            <artifactId>feign-api</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

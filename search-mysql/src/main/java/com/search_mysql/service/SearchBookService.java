@@ -1,12 +1,16 @@
 package com.search_mysql.service;
 
-import com.search_mysql.pojo.User;
-import com.search_mysql.pojo.UserBookshelf;
-import com.search_mysql.pojo.UserDto;
+import com.feign_api.pojo.Book;
+import com.feign_api.pojo.BookFile;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 public interface SearchBookService {
 
+    List<Book> selectAllBook(Book book);
+
+    Book selectBookById(int id);
+
+    BookFile selectBookFileByBookId(int id);
 }

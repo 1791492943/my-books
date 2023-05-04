@@ -5,7 +5,7 @@ spring:
     name: gateway
   cloud:
     nacos:
-      server-addr: 192.168.10.99:8848
+      server-addr: 192.168.10.103:8848
     gateway:
       routes:
         - id: search-mysql

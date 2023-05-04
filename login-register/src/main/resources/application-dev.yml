@@ -10,7 +10,7 @@ spring:
     name: login-register
   cloud:
     nacos:
-      server-addr: 192.168.10.99:8848
+      server-addr: 192.168.10.103:8848
 logging:
   level:
     com.search_mysql.mapper: debug
