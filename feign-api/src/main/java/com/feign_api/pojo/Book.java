@@ -51,27 +51,5 @@ public class Book {
      * 分类
      */
     private String classify;
-    /**
-     * 分页-当前页 非数据库字段
-     */
-    private Integer page;
-    /**
-     * 分页-显示条数 非数据库字段
-     */
-    private Integer size;
-
-    public static Book pagination(int page, int size){
-        Book book = new Book();
-
-        if(page <= 0 || size <= 0){
-            book.setPage(0);
-            book.setSize(50);
-            return book;
-        }
-
-        book.setPage((page-1) * size);
-        book.setSize(size);
-        return book;
-    }
 
 }

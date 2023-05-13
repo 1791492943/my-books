@@ -58,6 +58,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.question-bank</groupId>
+            <artifactId>feign-api</artifactId>
+        </dependency>
 
     </dependencies>
 

@@ -1,6 +1,6 @@
 package com.gateway.filter;
 
-import com.gateway.Util.Jwt;
+import com.feign_api.utils.Jwt;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.annotation.Order;
@@ -20,12 +20,13 @@ import reactor.core.publisher.Mono;
 public class AuthenticationFilter implements GlobalFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        System.err.println(Thread.currentThread().getId());
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
         //登录 注册 看书 直接放行
         if(request.getURI().getPath().contains("/login")
                 || request.getURI().getPath().contains("/register")
-                || request.getURI().getPath().contains("/selectBook")
+//                || request.getURI().getPath().contains("/selectBook")
         ){
             //放行
             return chain.filter(exchange);

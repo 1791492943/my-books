@@ -18,9 +18,6 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @Autowired
-    private RegisterMapper registerMapper;
-
     /**
      * 根据账号登录
      * @param user 账号 密码
@@ -28,6 +25,7 @@ public class LoginController {
      */
     @PostMapping("/login")
     public R loginByAccount(@RequestBody User user) {
+        System.err.println(Thread.currentThread().getId());
         UserDto userDto = loginService.loginByAccount(user);
         if(userDto == null){
             return R.error("用户名或密码错误!");
@@ -36,5 +34,7 @@ public class LoginController {
         userDto.setPassword(null);
         return R.succeed(userDto);
     }
+
+
 
 }

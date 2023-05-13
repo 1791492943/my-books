@@ -12,14 +12,14 @@ public class Jwt {
     /**
      * 构建
      */
-    public static String builder(String username){
+    public static String builder(String account){
         JwtBuilder jwtBuilder = Jwts.builder();
         String jwtToken = jwtBuilder
                 // 1.header 头
                 .setHeaderParam("typ", "JWT") //类型jwt
                 .setHeaderParam("alg", "HS256") //算法HS256
                 // 2.payload 账号 之类的东西
-                .claim("username", username)
+                .claim("account", account)
                 //主题
                 .setSubject("随便叫个名字")
                 //过期时间
@@ -34,7 +34,7 @@ public class Jwt {
     }
 
     /**
-     * 解析
+     * 解析是否成功
      */
     public static boolean parse(String token){
         JwtParser jwtParser = Jwts.parser();
@@ -45,5 +45,15 @@ public class Jwt {
             return false;
         }
         return true;
+    }
+
+    public static String parseToAccount(String token){
+        JwtParser jwtParser = Jwts.parser();
+        try {
+            Jws<Claims> claimsJws = jwtParser.setSigningKey("my-books").parseClaimsJws(token);
+            return claimsJws.getBody().get("account").toString();
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

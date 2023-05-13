@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: download
+book:
+  path: E:\my-books\
+  imgPath: E:\img

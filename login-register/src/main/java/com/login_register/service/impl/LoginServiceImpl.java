@@ -43,7 +43,7 @@ public class LoginServiceImpl implements LoginService {
     private static UserDto getUserDto(User user, User u) {
         if (u == null) return null;
 
-        String token = Jwt.builder(user.getUsername());
+        String token = Jwt.builder(user.getAccount());
         UserDto userDto = new UserDto(u);
         userDto.setToken(token);
 

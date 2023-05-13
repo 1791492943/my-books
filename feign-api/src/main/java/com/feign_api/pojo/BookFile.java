@@ -12,6 +12,10 @@ public class BookFile {
      */
     private Integer id;
     /**
+     * 用户账号
+     */
+    private String account;
+    /**
      * 书id
      */
     private Integer bookId;

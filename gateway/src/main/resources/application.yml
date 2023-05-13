@@ -5,10 +5,38 @@ spring:
     name: gateway
   cloud:
     nacos:
-      server-addr: 192.168.10.99:8848
+      server-addr: 127.0.0.1:8848
     gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://127.0.0.1"
+            allowedMethods:
+              - "GET"
+              - "POST"
+              - "DELETE"
+              - "PUT"
+              - "OPTIONS"
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 360000
       routes:
         - id: search-mysql
           uri: lb://search-mysql
           predicates:
             - Path=/search-mysql/**
+        - id: login-register
+          uri: lb://login-register
+          predicates:
+            - Path=/login,/register
+        - id: write-mysql
+          uri: lb://write-mysql
+          predicates:
+            - Path=/write-mysql/**
+        - id: download
+          uri: lb://download
+          predicates:
+            - Path=/download/**
+
