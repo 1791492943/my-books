@@ -21,4 +21,5 @@ public class DownloadController {
     public void downloadImg(@PathVariable("imgName") String imgName, HttpServletResponse response) throws IOException {
         Download.img(imgPath + "\\" + imgName, response);
     }
+
 }

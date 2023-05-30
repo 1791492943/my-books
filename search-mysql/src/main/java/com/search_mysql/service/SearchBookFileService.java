@@ -4,6 +4,8 @@ package com.search_mysql.service;
 import com.feign_api.pojo.BookFile;
 import org.apache.ibatis.annotations.Select;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public interface SearchBookFileService {
@@ -13,7 +15,6 @@ public interface SearchBookFileService {
      * @param bookId
      * @return
      */
-    @Select("select * from book_file where book_id = #{bookId}")
     BookFile selectBookFileByBookId(int bookId);
 
     /**
@@ -21,7 +22,14 @@ public interface SearchBookFileService {
      * @param account
      * @return
      */
-    @Select("select * from book_file where account = #{account}")
     List<BookFile> selectBookFileByAccount(String account);
+
+    /**
+     * 查看章节
+     * @param bookId 书id
+     * @param chapter 章节
+     * @return
+     */
+    String lookBook(Integer bookId, Integer chapter) throws IOException;
 
 }

@@ -28,4 +28,6 @@ public interface SearchBookFileMapper {
     List<BookFile> selectBookFileByAccount(String account);
 
 
+    @Select("select * from book_file where book_id = #{bookId}")
+    BookFile lookBook(Integer bookId);
 }

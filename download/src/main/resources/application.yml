@@ -4,5 +4,5 @@ spring:
   application:
     name: download
 book:
-  path: E:\my-books\
-  imgPath: E:\img
+  path: E:\my-books\ # 书本路径
+  imgPath: E:\img # 图片路径
