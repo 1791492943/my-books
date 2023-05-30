@@ -18,7 +18,7 @@ public class Page<T> {
      * @param size 显示条数
      */
     public Page(Integer page, Integer size) {
-        this.page = (page - 1) * size;
+        this.page = page * size + 1;
         this.size = size;
     }
 }

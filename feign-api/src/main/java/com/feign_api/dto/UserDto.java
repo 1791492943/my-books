@@ -1,5 +1,6 @@
-package com.feign_api.pojo;
+package com.feign_api.dto;
 
+import com.feign_api.pojo.User;
 import lombok.Data;
 
 /**

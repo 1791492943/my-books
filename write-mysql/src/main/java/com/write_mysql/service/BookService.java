@@ -8,11 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface BookService {
-    int createBook(Book book);
-
-    int createBookDirectory(BookFile bookFile);
-
-    List<BookFile> selectBookFilesByUserId(Integer userId);
+    boolean createBook(Book book,String myBooksToken, String path);
 
     BookFile selectBookFilesByBookId(Integer bookId);
 

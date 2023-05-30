@@ -3,6 +3,7 @@ package com.write_mysql.service.impl;
 import com.feign_api.client.SearchMysqlServiceClient;
 import com.feign_api.pojo.Book;
 import com.feign_api.pojo.BookFile;
+import com.feign_api.pojo.User;
 import com.feign_api.utils.Jwt;
 import com.write_mysql.exception.ServiceException;
 import com.write_mysql.mapper.BookMapper;
@@ -24,18 +25,21 @@ public class BookServiceImpl implements BookService {
     private SearchMysqlServiceClient searchMysqlServiceClient;
 
     @Override
-    public int createBook(Book book) {
-        return bookMapper.createBook(book);
-    }
+    @Transactional()
+    public boolean createBook(Book book, String myBooksToken, String path) {
+        bookMapper.createBook(book);
+        //从token获取账号
+        String account = Jwt.parseToAccount(myBooksToken);
 
-    @Override
-    public int createBookDirectory(BookFile bookFile) {
-        return bookMapper.createBookDirectory(bookFile);
-    }
-
-    @Override
-    public List<BookFile> selectBookFilesByUserId(Integer userId) {
-        return bookMapper.selectBookFilesByUserId(userId);
+        BookFile bookFile = new BookFile();
+        bookFile.setAccount(account);
+        bookFile.setBookId(book.getId());
+        path = path.endsWith("\\") ? path : path + "\\";
+        bookFile.setDirectory(path + book.getId() + "-" + book.getName());
+        boolean mkdirs = new File(bookFile.getDirectory()).mkdirs();
+        if (!mkdirs) throw new RuntimeException("创建文件失败，回滚数据库操作");
+        bookMapper.createBookDirectory(bookFile);
+        return true;
     }
 
     @Override

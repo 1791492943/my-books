@@ -1,7 +1,7 @@
 package com.login_register.service.impl;
 
 import com.feign_api.pojo.User;
-import com.feign_api.pojo.UserDto;
+import com.feign_api.dto.UserDto;
 import com.feign_api.utils.Jwt;
 import com.login_register.mapper.LoginMapper;
 import com.login_register.service.LoginService;

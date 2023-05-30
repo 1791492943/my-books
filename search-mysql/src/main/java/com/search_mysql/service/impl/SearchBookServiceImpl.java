@@ -19,14 +19,27 @@ public class SearchBookServiceImpl implements SearchBookService {
 
     @Override
     public Page selectAllBook(HashMap<String, Object> map) {
-        if(map.get("name") != null){
-            map.put("name","%" + map.get("name") + "%");
+
+        Object page1 =  map.get("page");
+        Object size1 =  map.get("size");
+
+        if(page1 == null || size1 == null){
+            map.put("page",0);
+            map.put("size",10);
+        }else if(Integer.parseInt(page1.toString()) <= 0 || Integer.parseInt(size1.toString()) <= 0 || Integer.parseInt(size1.toString()) > 100){
+            map.put("page",0);
+            map.put("size",10);
+        }else{
+            int p = Integer.parseInt(page1.toString());
+            int s = Integer.parseInt(size1.toString());
+            map.put("page", (p-1)*s);
+            map.put("size",s);
         }
 
         List<Book> books = searchBookMapper.selectAllBook(map);
 
-        int page =  Integer.parseInt((String) map.get("page"));
-        int size = Integer.parseInt((String) map.get("size"));
+        int page = (int) map.get("page");
+        int size = (int) map.get("size");
         Page<Book> p = new Page<>(page,size);
         p.setTotal(books.size());
         p.setData(books);

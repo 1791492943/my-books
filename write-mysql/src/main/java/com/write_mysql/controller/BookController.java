@@ -23,33 +23,12 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @Autowired
-    private SearchMysqlServiceClient searchMysqlServiceClient;
-
     @Value("${book.path}")
     String path;
     @PostMapping("/createBook")
     public R<String> createBook(@RequestBody Book book,@RequestHeader("myBooksToken") String myBooksToken){
-        bookService.createBook(book);
-
-        BookFile bookFile = new BookFile();
-        String account = Jwt.parseToAccount(myBooksToken);
-        User user = new User();
-        user.setAccount(account);
-
-        bookFile.setAccount(account);
-        bookFile.setBookId(book.getId());
-        bookFile.setDirectory(path + book.getId() + "-" + book.getName());
-        new File(path + bookFile.getDirectory()).mkdirs();
-
-        bookService.createBookDirectory(bookFile);
+        bookService.createBook(book, myBooksToken, path);
         return R.succeed("创建成功");
-    }
-
-    @GetMapping("/selectBookFileByUserId/{userId}")
-    public R selectBookFileByUserId(@PathVariable Integer userId){
-        List<BookFile> bookFiles = bookService.selectBookFilesByUserId(userId);
-        return R.succeed(bookFiles);
     }
 
     @GetMapping("/selectBookFileByBookId/{bookId}")

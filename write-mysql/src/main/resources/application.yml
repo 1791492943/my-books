@@ -4,4 +4,4 @@ spring:
 book:
   # 创建书本 存放的路径
   # 在 download 模块也要配置
-  path: E:/my-books/
+  path: E:\my-books\

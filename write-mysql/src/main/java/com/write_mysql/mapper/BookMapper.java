@@ -26,12 +26,9 @@ public interface BookMapper {
      * @return 影响的行数
      */
     @Insert("insert into " +
-            "book_file (id, user_id, book_id, directory) " +
-            "values (null, #{userId}, #{bookId}, #{directory});")
+            "book_file (id, account, book_id, directory) " +
+            "values (null, #{account}, #{bookId}, #{directory});")
     int createBookDirectory(BookFile bookFile);
-
-    @Select("select * from book_file where user_id = #{userId};")
-    List<BookFile> selectBookFilesByUserId(Integer userId);
 
     @Select("select * from book_file where book_id = #{bookId};")
     BookFile selectBookFilesByBookId(Integer bookId);

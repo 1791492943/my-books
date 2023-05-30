@@ -2,8 +2,7 @@ package com.login_register.controller;
 
 import com.feign_api.pojo.R;
 import com.feign_api.pojo.User;
-import com.feign_api.pojo.UserDto;
-import com.login_register.mapper.RegisterMapper;
+import com.feign_api.dto.UserDto;
 import com.login_register.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
