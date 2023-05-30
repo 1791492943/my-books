@@ -45,7 +45,8 @@ public class SearchBookFileServiceImpl implements SearchBookFileService {
         String s;
 
         while ((s = br.readLine()) != null) {
-            sb.append(s).append("<br>");
+            s = "<p>" + s + "</p>";
+            sb.append(s);
         }
 
         br.close();

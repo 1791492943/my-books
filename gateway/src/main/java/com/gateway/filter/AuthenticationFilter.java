@@ -20,12 +20,13 @@ import reactor.core.publisher.Mono;
 public class AuthenticationFilter implements GlobalFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        System.err.println(Thread.currentThread().getId());
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
         //登录 注册 看书 直接放行
         if(request.getURI().getPath().contains("/login")
                 || request.getURI().getPath().contains("/register")
+                || request.getURI().getPath().contains("/download")
+                || request.getURI().getPath().contains("/select")
 //                || request.getURI().getPath().contains("/selectBook")
         ){
             //放行

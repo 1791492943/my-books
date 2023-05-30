@@ -27,7 +27,7 @@ public class SearchBookController {
      * @param map {page:页码, size:显示数量, name:模糊书名}
      * @return
      */
-    @GetMapping("/page")
+    @GetMapping("/select/page")
     public R<Page<Book>> page(@RequestParam HashMap<String,Object> map){
         System.err.println(Thread.currentThread().getId());
         Page page = searchBookService.selectAllBook(map);
@@ -39,13 +39,13 @@ public class SearchBookController {
      * @param id
      * @return
      */
-    @GetMapping("/{id}")
+    @GetMapping("/select/{id}")
     public R<Book> selectBookById(@PathVariable Integer id){
         Book book = searchBookService.selectBookById(id);
         return R.succeed(book);
     }
 
-    @GetMapping("/lookBook/{bookId}/{chapter}")
+    @GetMapping("/select/chapter/{bookId}/{chapter}")
     public R<String> lookBook(@PathVariable Integer bookId, @PathVariable Integer chapter) throws IOException {
         String s = searchBookFileService.lookBook(bookId, chapter);
         return R.succeed(s);
